@@ -1,0 +1,47 @@
+[
+    {
+        "id": "3f624ca17b0f67e4",
+        "type": "tab",
+        "label": "Parking",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "c1d24643bd054f6e",
+        "type": "ui_template",
+        "z": "3f624ca17b0f67e4",
+        "group": "f67a1c96c9d3a9b4",
+        "name": "Interface Caméra",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<script>\n(function(scope) {\n    scope.cams = [\n        { name: \"Caméra 1\", url: \"http://192.168.0.128/axis-cgi/mjpg/video.cgi\" },\n        { name: \"Caméra 2\", url: \"http://192.168.0.7/axis-cgi/mjpg/video.cgi\" },\n        { name: \"Caméra 3\", url: \"http://192.168.0.128/axis-cgi/mjpg/video.cgi\" },\n        { name: \"Caméra 4\", url: \"http://192.168.0.7/axis-cgi/mjpg/video.cgi\" },\n        { name: \"Caméra 5\", url: \"http://192.168.0.128/axis-cgi/mjpg/video.cgi\" },\n        { name: \"Caméra 6\", url: \"http://192.168.0.7/axis-cgi/mjpg/video.cgi\" }\n    ];\n    scope.selected = scope.cams[0];\n\n    scope.selectCam = function(cam) {\n        const viewer = document.querySelector('.selected-cam img');\n        viewer.classList.add('fade-out');\n        setTimeout(() => {\n            scope.$apply(function() {\n                scope.selected = cam;\n            });\n            viewer.classList.remove('fade-out');\n            viewer.classList.add('fade-in');\n            setTimeout(() => viewer.classList.remove('fade-in'), 400);\n        }, 300);\n    };\n})(scope);\n</script>\n\n<style>\n  .cam-container {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: 20px;\n    font-family: 'Segoe UI', sans-serif;\n    background-color: #f7f9fc;\n    padding: 20px;\n    border-radius: 12px;\n  }\n\n  .selected-cam {\n    max-width: 90%;\n    background: white;\n    padding: 16px;\n    border-radius: 16px;\n    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);\n    text-align: center;\n    transition: all 0.3s ease;\n  }\n\n  .selected-cam img {\n    width: 100%;\n    max-height: 450px;\n    border-radius: 12px;\n    transition: opacity 0.4s ease-in-out;\n  }\n\n  .fade-out {\n    opacity: 0;\n  }\n\n  .fade-in {\n    opacity: 1;\n  }\n\n  .cam-title {\n    font-size: 24px;\n    font-weight: 600;\n    margin-bottom: 10px;\n    color: #0078d7;\n  }\n\n  .cam-grid {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n    gap: 16px;\n  }\n\n  .cam-card {\n    width: 180px;\n    background: #ffffff;\n    border-radius: 12px;\n    padding: 10px;\n    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);\n    cursor: pointer;\n    transition: transform 0.2s, box-shadow 0.3s;\n  }\n\n  .cam-card:hover {\n    transform: scale(1.05);\n    box-shadow: 0 4px 20px rgba(0, 120, 215, 0.3);\n  }\n\n  .cam-card img {\n    width: 100%;\n    border-radius: 8px;\n    margin-bottom: 8px;\n  }\n\n  .cam-card-title {\n    text-align: center;\n    font-weight: bold;\n    color: #333;\n  }\n</style>\n\n<div class=\"cam-container\">\n  <div class=\"selected-cam\">\n    <div class=\"cam-title\">{{selected.name}}</div>\n    <img ng-src=\"{{selected.url}}\">\n  </div>\n\n  <div class=\"cam-grid\">\n    <div class=\"cam-card\" ng-repeat=\"cam in cams\" ng-if=\"cam !== selected\" ng-click=\"selectCam(cam)\">\n      <img ng-src=\"{{cam.url}}\">\n      <div class=\"cam-card-title\">{{cam.name}}</div>\n    </div>\n  </div>\n</div>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 650,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f67a1c96c9d3a9b4",
+        "type": "ui_group",
+        "name": "Caméras",
+        "tab": "7f2cbe99172c03e1",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "7f2cbe99172c03e1",
+        "type": "ui_tab",
+        "name": "Surveillance",
+        "icon": "videocam",
+        "order": 1
+    }
+]
