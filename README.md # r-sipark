@@ -1,0 +1,2144 @@
+[
+    {
+        "id": "91d055626f2fa27e",
+        "type": "tab",
+        "label": "Flux 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "16b13520e42c46f7",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a12e990e32075505",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3f624ca17b0f67e4",
+        "type": "tab",
+        "label": "Parking",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "4302cfb60d0a158c",
+        "type": "tab",
+        "label": "Connexion TCP",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a1380fb9e2ac223f",
+        "type": "tab",
+        "label": "Dectection de voiture (Sol) ",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "cb94bcf788820732",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "2763cefb9316b5e2",
+        "type": "ui_tab",
+        "name": "Maquette",
+        "icon": "car",
+        "order": 1
+    },
+    {
+        "id": "354d2033de2bde1e",
+        "type": "ui_group",
+        "name": "Barrière",
+        "tab": "2763cefb9316b5e2",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "8aaf9d54.b995a",
+        "type": "ui_tab",
+        "name": "Tableau de bord",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "623129e5.b4f0a8",
+        "type": "ui_group",
+        "name": "Parking",
+        "tab": "8aaf9d54.b995a",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false
+    },
+    {
+        "id": "tab1",
+        "type": "ui_tab",
+        "name": "Parking",
+        "icon": "car",
+        "order": 1
+    },
+    {
+        "id": "group1",
+        "type": "ui_group",
+        "name": "Contrôle Parking",
+        "tab": "tab1",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "parking_tab",
+        "type": "ui_tab",
+        "name": "Parking",
+        "icon": "car",
+        "order": 1
+    },
+    {
+        "id": "parking_group",
+        "type": "ui_group",
+        "name": "Contrôle Parking",
+        "tab": "parking_tab",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "modbus_client_1",
+        "type": "modbus-client",
+        "name": "ResiPark",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": false,
+        "tcpHost": "192.168.0.105",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "",
+        "serialConnectionDelay": "",
+        "serialAsciiResponseStartDelimiter": "",
+        "unit_id": 0,
+        "commandDelay": "",
+        "clientTimeout": "",
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": 2000,
+        "parallelUnitIdsAllowed": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "modbus_client_105",
+        "type": "modbus-client",
+        "name": "Résipark",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "tcpHost": "192.168.0.105",
+        "tcpPort": "502",
+        "unit_id": 0,
+        "reconnectTimeout": 2000
+    },
+    {
+        "id": "1471b0d3255e9d1e",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": true
+    },
+    {
+        "id": "2abd243cf1965fb1",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "9ceccbe0bc173bef",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "1471b0d3255e9d1e",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "2abd243cf1965fb1",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "order": 3,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "331ebd82677b29ca",
+        "type": "ui-group",
+        "name": "Group 1",
+        "page": "9ceccbe0bc173bef",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "815d809256a5c66f",
+        "type": "modbus-client",
+        "name": "Résipark",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "tcpHost": "192.168.0.105",
+        "tcpPort": "502",
+        "unit_id": 0,
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": 2000
+    },
+    {
+        "id": "039fc6a215f5367d",
+        "type": "ui_tab",
+        "name": "Tableau de bord",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "0121695808281c88",
+        "type": "modbus-client",
+        "name": "modbus-server",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": false,
+        "tcpHost": "192.168.0.105",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "",
+        "serialConnectionDelay": "",
+        "serialAsciiResponseStartDelimiter": "",
+        "unit_id": 0,
+        "commandDelay": "",
+        "clientTimeout": "",
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": 2000,
+        "parallelUnitIdsAllowed": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "d2de733079c099e3",
+        "type": "ui_tab",
+        "name": "Tableau de bord",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "0b4a66241d00597b",
+        "type": "ui_group",
+        "name": "Parking",
+        "tab": "039fc6a215f5367d",
+        "order": 1,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "e937e8d3405f0a66",
+        "type": "ui_group",
+        "name": "Contrôle Parking",
+        "tab": "d2de733079c099e3",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c6f81b5376fc5b0b",
+        "type": "ui-spacer",
+        "group": "331ebd82677b29ca",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 1,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "b75063798e2a3054",
+        "type": "ui-link",
+        "name": "Link 1",
+        "ui": "1471b0d3255e9d1e",
+        "path": "/",
+        "icon": "home",
+        "order": 4,
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "d89aeee0c1f89bc8",
+        "type": "ui-spacer",
+        "group": "331ebd82677b29ca",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 2,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "ce88ad9bd406bd8e",
+        "type": "ui-spacer",
+        "group": "331ebd82677b29ca",
+        "name": "Parking ",
+        "tooltip": "",
+        "order": 3,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "1cdc9df63af6736b",
+        "type": "ui-page",
+        "name": "Parking ",
+        "ui": "1471b0d3255e9d1e",
+        "path": "/page2",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "2abd243cf1965fb1",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 5,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "e224c639f1dc0ed9",
+        "type": "ui-group",
+        "name": "Centre de controle ",
+        "page": "1cdc9df63af6736b",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "503887e63c7da3fb",
+        "type": "ui-spacer",
+        "group": "e224c639f1dc0ed9",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 1,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "tab-1",
+        "type": "ui_tab",
+        "name": "Parking - Boutons",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "tab-2",
+        "type": "ui_tab",
+        "name": "Etat Barrières",
+        "icon": "car",
+        "order": 2
+    },
+    {
+        "id": "group-etats",
+        "type": "ui_group",
+        "name": "Etat des Barrières",
+        "tab": "tab-2",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "group-historique",
+        "type": "ui_group",
+        "name": "Historique Barrières",
+        "tab": "tab-2",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "modbus-server",
+        "type": "modbus-client",
+        "name": "Modbus Parking",
+        "clienttype": "tcp",
+        "bufferCommands": false,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": false,
+        "tcpHost": "192.168.0.105",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "",
+        "serialConnectionDelay": "",
+        "serialAsciiResponseStartDelimiter": "",
+        "unit_id": 0,
+        "commandDelay": "",
+        "clientTimeout": "",
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": 2000,
+        "parallelUnitIdsAllowed": true,
+        "showErrors": false,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "74ee5c2c33251c65",
+        "type": "ui_group",
+        "name": "Contrôle Parking",
+        "tab": "tab1",
+        "order": 1,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "bc15fa152f46d61d",
+        "type": "ui-theme",
+        "name": "Default",
+        "colors": {}
+    },
+    {
+        "id": "bc23e0e5876e1a8c",
+        "type": "ui-page",
+        "name": "Parking",
+        "ui": "1471b0d3255e9d1e",
+        "path": "/parking",
+        "icon": "car",
+        "layout": "grid",
+        "theme": "bc15fa152f46d61d",
+        "order": 2
+    },
+    {
+        "id": "37d1dca11c4e7a32",
+        "type": "ui-group",
+        "name": "Colonne Entrée",
+        "page": "bc23e0e5876e1a8c",
+        "width": "6",
+        "height": "1",
+        "order": 1,
+        "showTitle": true,
+        "className": ""
+    },
+    {
+        "id": "1c4b75f0f71e1eac",
+        "type": "ui-group",
+        "name": "Colonne Sortie",
+        "page": "bc23e0e5876e1a8c",
+        "width": "6",
+        "height": "1",
+        "order": 2,
+        "showTitle": true,
+        "className": ""
+    },
+    {
+        "id": "982af4a4c4f31511",
+        "type": "ui-group",
+        "name": "Historique",
+        "page": "bc23e0e5876e1a8c",
+        "width": "12",
+        "height": "4",
+        "order": 3,
+        "showTitle": true,
+        "className": ""
+    },
+    {
+        "id": "354925a73877b2ae",
+        "type": "ui-page",
+        "name": "Parking",
+        "ui": "1471b0d3255e9d1e",
+        "path": "/parking",
+        "icon": "fa-car",
+        "layout": "grid",
+        "theme": "theme-default",
+        "order": 1
+    },
+    {
+        "id": "d6b125bce3df23a3",
+        "type": "ui-group",
+        "name": "Entrée",
+        "page": "354925a73877b2ae",
+        "width": "6",
+        "order": 1
+    },
+    {
+        "id": "2280c5bc44ec25b0",
+        "type": "ui-group",
+        "name": "Sortie",
+        "page": "354925a73877b2ae",
+        "width": "6",
+        "order": 2
+    },
+    {
+        "id": "12d919be590deff7",
+        "type": "ui-group",
+        "name": "Historique",
+        "page": "354925a73877b2ae",
+        "width": "12",
+        "order": 3
+    },
+    {
+        "id": "de9bc2ce97f46d8b",
+        "type": "ui_group",
+        "name": "Etat Parking",
+        "order": 1,
+        "width": "6",
+        "className": ""
+    },
+    {
+        "id": "93d19e96887b8ff2",
+        "type": "ui_group",
+        "name": "Historique Parking",
+        "order": 1,
+        "width": "6",
+        "className": ""
+    },
+    {
+        "id": "d58f3321d07cceec",
+        "type": "ui_tab",
+        "name": "Parking",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "7f2cbe99172c03e1",
+        "type": "ui_tab",
+        "name": "Surveillance",
+        "icon": "videocam",
+        "order": 1
+    },
+    {
+        "id": "f67a1c96c9d3a9b4",
+        "type": "ui_group",
+        "name": "Caméras",
+        "tab": "7f2cbe99172c03e1",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "page-parking",
+        "type": "ui_tab",
+        "name": "Parking",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "page-login",
+        "type": "ui_tab",
+        "name": "Login",
+        "icon": "lock",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "groupe-login",
+        "type": "ui_group",
+        "name": "Sécurité",
+        "tab": "page-login",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "5c84f11b3b355b89",
+        "type": "ui_group",
+        "name": "Entrée",
+        "order": 1,
+        "width": "6"
+    },
+    {
+        "id": "70be30d4d02e5ca8",
+        "type": "ui_group",
+        "name": "Sortie",
+        "order": 2,
+        "width": "6"
+    },
+    {
+        "id": "page-global",
+        "type": "ui_tab",
+        "name": "Parking Sécurisé",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "groupe-global",
+        "type": "ui_group",
+        "name": "Accès Sécurisé",
+        "tab": "page-global",
+        "order": 1,
+        "disp": true,
+        "width": "24",
+        "collapse": false
+    },
+    {
+        "id": "d24d0788d88cbf95",
+        "type": "ui_group",
+        "name": "Contrôle Parking",
+        "tab": "d58f3321d07cceec",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ui-tab-parking",
+        "type": "ui_tab",
+        "name": "Parking Sécurisé",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ui-group-security",
+        "type": "ui_group",
+        "name": "Accès Sécurisé",
+        "tab": "ui-tab-parking",
+        "order": 1,
+        "disp": true,
+        "width": "24",
+        "collapse": false
+    },
+    {
+        "id": "groupe-cache",
+        "type": "ui_group",
+        "name": "Invisible",
+        "tab": "page-existante",
+        "order": 1,
+        "disp": false,
+        "width": "0",
+        "collapse": false
+    },
+    {
+        "id": "48fc9e69f4c5f47f",
+        "type": "ui_tab",
+        "name": "Accueil",
+        "icon": "home",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "a1c2c2413747069e",
+        "type": "ui_group",
+        "name": "Bienvenue",
+        "tab": "48fc9e69f4c5f47f",
+        "order": 1,
+        "disp": true,
+        "width": "24",
+        "collapse": false
+    },
+    {
+        "id": "652a102a8ad0a17d",
+        "type": "ui_tab",
+        "name": "Accueil",
+        "icon": "home",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "14bd0185b0a20615",
+        "type": "ui_group",
+        "name": "Bienvenue Résipark",
+        "tab": "652a102a8ad0a17d",
+        "order": 1,
+        "disp": true,
+        "width": "24",
+        "collapse": false
+    },
+    {
+        "id": "d355ea3fc761c488",
+        "type": "ui_tab",
+        "name": "Accueil",
+        "icon": "home",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "fc2864c045ff0678",
+        "type": "ui_group",
+        "name": "Bienvenue Résipark",
+        "tab": "d355ea3fc761c488",
+        "order": 1,
+        "disp": true,
+        "width": "24",
+        "collapse": false
+    },
+    {
+        "id": "88c5cbda2a08b7e6",
+        "type": "ui_tab",
+        "name": "Accueil",
+        "icon": "home",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "e409c17403601807",
+        "type": "ui_group",
+        "name": "Bienvenue Résipark",
+        "tab": "88c5cbda2a08b7e6",
+        "order": 1,
+        "disp": true,
+        "width": "24",
+        "collapse": false
+    },
+    {
+        "id": "84eeaadfcf3ce016",
+        "type": "ui_tab",
+        "name": "Accueil",
+        "icon": "home",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "1e3ef5022b5fb462",
+        "type": "ui_group",
+        "name": "Bienvenue Résipark",
+        "tab": "84eeaadfcf3ce016",
+        "order": 1,
+        "disp": true,
+        "width": "24",
+        "collapse": false
+    },
+    {
+        "id": "mysql-remote",
+        "type": "MySQLdatabase",
+        "name": "DB Résipark",
+        "host": "192.168.1.100",
+        "port": "3306",
+        "db": "resipark",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "onglet-parking",
+        "type": "ui_tab",
+        "name": "Parking",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "groupe-lumiere",
+        "type": "ui_group",
+        "name": "Lumière",
+        "tab": "onglet-parking",
+        "order": 2,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "tab-nfc",
+        "type": "ui_tab",
+        "name": "Badges",
+        "icon": "contactless-payment",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "groupe-nfc",
+        "type": "ui_group",
+        "name": "NFC",
+        "tab": "tab-nfc",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "793399102954e388",
+        "type": "ui_tab",
+        "name": "Parking",
+        "icon": "car",
+        "order": 1
+    },
+    {
+        "id": "ui_tab_parking",
+        "type": "ui_tab",
+        "name": "Parking",
+        "icon": "car",
+        "order": 1
+    },
+    {
+        "id": "ui_group_parking",
+        "type": "ui_group",
+        "name": "Contrôle Parking",
+        "tab": "ui_tab_parking",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "dc17b45fca712d8f",
+        "type": "ui_group",
+        "name": "Contrôle Parking",
+        "tab": "793399102954e388",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "67909bac07604fde",
+        "type": "ui_template",
+        "z": "91d055626f2fa27e",
+        "d": true,
+        "group": "14bd0185b0a20615",
+        "name": "Accueil Résipark Sécurisé",
+        "order": 1,
+        "width": "24",
+        "height": "10",
+        "format": "<div id=\"overlay-security\" style=\"position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: linear-gradient(135deg, #1d1d1d, #2e2e2e); color: white; z-index: 999999; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;\">\n    <h1 style=\"font-size: 3em; margin-bottom: 20px;\">🚗 Bienvenue sur Résipark</h1>\n    <p style=\"font-size: 1.5em; max-width: 600px;\">Votre espace de gestion privée du parking et de la sécurité</p>\n    <div style=\"margin: 30px 0;\">\n        <button disabled style=\"padding: 15px 30px; font-size: 1.2em; margin: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px;\">Accès Parking</button>\n        <button disabled style=\"padding: 15px 30px; font-size: 1.2em; margin: 10px; background-color: #2196F3; color: white; border: none; border-radius: 5px;\">Caméras Surveillance</button>\n        <button disabled style=\"padding: 15px 30px; font-size: 1.2em; margin: 10px; background-color: #FF9800; color: white; border: none; border-radius: 5px;\">Gestion Utilisateurs</button>\n    </div>\n    <div style=\"margin-top: 20px;\">\n        <input type=\"password\" id=\"codeInput\" placeholder=\"Entrer le code PIN\" style=\"padding: 15px; font-size: 1.5em; width: 250px; text-align: center; border-radius: 5px; border: none;\">\n        <br><br>\n        <button onclick=\"checkCode()\" style=\"padding: 12px 40px; font-size: 1.2em; cursor: pointer; background-color: #28a745; color: white; border: none; border-radius: 5px;\">Valider</button>\n        <p id=\"result\" style=\"color: red; margin-top: 20px; font-weight: bold;\"></p>\n    </div>\n</div>\n\n<script>\n    function checkCode(){\n        var code = document.getElementById('codeInput').value;\n        if(code === \"0175\"){\n            document.getElementById('overlay-security').style.display = 'none';\n            var msg = {payload: \"OK\"};\n            scope.send(msg);\n        }else{\n            document.getElementById('result').innerHTML = \"🚫 Code incorrect\";\n        }\n    }\n</script>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 550,
+        "y": 320,
+        "wires": [
+            [
+                "c90e81c670b8225b",
+                "1fe789b40d04d2e2"
+            ]
+        ]
+    },
+    {
+        "id": "c90e81c670b8225b",
+        "type": "function",
+        "z": "91d055626f2fa27e",
+        "d": true,
+        "name": "Débloquer Accès",
+        "func": "global.set(\"accesParking\", true);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1fe789b40d04d2e2",
+        "type": "ui_ui_control",
+        "z": "91d055626f2fa27e",
+        "d": true,
+        "name": "Aller Parking",
+        "events": "all",
+        "x": 810,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "41190b4cecea67b4",
+        "type": "ui_ui_control",
+        "z": "91d055626f2fa27e",
+        "d": true,
+        "name": "Check On Connect",
+        "events": "connect",
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "b7b7a5012891caec"
+            ]
+        ]
+    },
+    {
+        "id": "b7b7a5012891caec",
+        "type": "function",
+        "z": "91d055626f2fa27e",
+        "d": true,
+        "name": "Forcer sur accueil si pas code",
+        "func": "if(global.get(\"accesParking\") !== true){\n    return {payload: {tab: \"Accueil\"}};\n}\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 400,
+        "wires": [
+            [
+                "c46c0903a68463eb"
+            ]
+        ]
+    },
+    {
+        "id": "c46c0903a68463eb",
+        "type": "ui_ui_control",
+        "z": "91d055626f2fa27e",
+        "d": true,
+        "name": "Rediriger Accueil",
+        "events": "all",
+        "x": 910,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "30c0c0e1c9bba358",
+        "type": "ui_button",
+        "z": "16b13520e42c46f7",
+        "name": "Activer Mode Forcer",
+        "group": "parking_group",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Activer Mode Forcer",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "",
+        "topicType": "str",
+        "x": 380,
+        "y": 120,
+        "wires": [
+            [
+                "modbus_write_258"
+            ]
+        ]
+    },
+    {
+        "id": "3e1ef7f7933b7202",
+        "type": "ui_button",
+        "z": "16b13520e42c46f7",
+        "name": "Ouvrir Barrière",
+        "group": "parking_group",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Ouvrir Barrière",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "",
+        "topicType": "str",
+        "x": 400,
+        "y": 180,
+        "wires": [
+            [
+                "modbus_write_259"
+            ]
+        ]
+    },
+    {
+        "id": "modbus_write_258",
+        "type": "modbus-write",
+        "z": "16b13520e42c46f7",
+        "name": "Écriture registre 258",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "0",
+        "dataType": "HoldingRegister",
+        "adr": "258",
+        "quantity": "1",
+        "server": "modbus_client_1",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 640,
+        "y": 120,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7c2b08f49d54256d",
+        "type": "ui_button",
+        "z": "16b13520e42c46f7",
+        "name": "Fermer Barrière",
+        "group": "parking_group",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Fermer Barrière",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "2",
+        "payloadType": "num",
+        "topic": "",
+        "topicType": "str",
+        "x": 400,
+        "y": 260,
+        "wires": [
+            [
+                "8c9c79d579f9865e"
+            ]
+        ]
+    },
+    {
+        "id": "8c9c79d579f9865e",
+        "type": "modbus-write",
+        "z": "16b13520e42c46f7",
+        "name": "Écriture registre 259",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "0",
+        "dataType": "HoldingRegister",
+        "adr": "259",
+        "quantity": "1",
+        "server": "modbus_client_1",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 640,
+        "y": 280,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c7faea94bd7efa24",
+        "type": "ui_button",
+        "z": "16b13520e42c46f7",
+        "name": "Ouvrir Barrière de Sortie",
+        "group": "parking_group",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Ouvrir Barrière de Sortie ",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "4",
+        "payloadType": "num",
+        "topic": "",
+        "topicType": "str",
+        "x": 390,
+        "y": 340,
+        "wires": [
+            [
+                "4ff97539ec139f50",
+                "41a9dc26159a46db"
+            ]
+        ]
+    },
+    {
+        "id": "modbus_write_259",
+        "type": "modbus-write",
+        "z": "16b13520e42c46f7",
+        "name": "Écriture registre 259",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "0",
+        "dataType": "HoldingRegister",
+        "adr": "259",
+        "quantity": "1",
+        "server": "modbus_client_1",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 640,
+        "y": 200,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4ff97539ec139f50",
+        "type": "modbus-write",
+        "z": "16b13520e42c46f7",
+        "name": "Écriture registre 259",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "0",
+        "dataType": "HoldingRegister",
+        "adr": "259",
+        "quantity": "1",
+        "server": "modbus_client_1",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 640,
+        "y": 360,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f52cd3e049f263ce",
+        "type": "ui_button",
+        "z": "16b13520e42c46f7",
+        "name": "Fermer Barrière de Sortie",
+        "group": "parking_group",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Fermer Barrière de Sortie",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "8",
+        "payloadType": "num",
+        "topic": "",
+        "topicType": "str",
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "2374a56baa8b9a80"
+            ]
+        ]
+    },
+    {
+        "id": "2374a56baa8b9a80",
+        "type": "modbus-write",
+        "z": "16b13520e42c46f7",
+        "name": "Écriture registre 259",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "0",
+        "dataType": "HoldingRegister",
+        "adr": "259",
+        "quantity": "1",
+        "server": "modbus_client_1",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 640,
+        "y": 440,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e43e3232ac1ea7cf",
+        "type": "link in",
+        "z": "16b13520e42c46f7",
+        "name": "link in 1",
+        "links": [
+            "8595922716ff6132"
+        ],
+        "x": 425,
+        "y": 220,
+        "wires": [
+            [
+                "modbus_write_259"
+            ]
+        ]
+    },
+    {
+        "id": "70cc79ea4b5852b4",
+        "type": "link in",
+        "z": "16b13520e42c46f7",
+        "name": "link in 2",
+        "links": [
+            "45203aadba12a522"
+        ],
+        "x": 425,
+        "y": 300,
+        "wires": [
+            [
+                "8c9c79d579f9865e"
+            ]
+        ]
+    },
+    {
+        "id": "4fcb22ba4b3c4986",
+        "type": "link in",
+        "z": "16b13520e42c46f7",
+        "name": "link in 3",
+        "links": [
+            "5f30574455f9a409"
+        ],
+        "x": 425,
+        "y": 380,
+        "wires": [
+            [
+                "4ff97539ec139f50"
+            ]
+        ]
+    },
+    {
+        "id": "8180a397a7b8a759",
+        "type": "link in",
+        "z": "16b13520e42c46f7",
+        "name": "link in 4",
+        "links": [
+            "6168a8b2d9dd66f9"
+        ],
+        "x": 425,
+        "y": 460,
+        "wires": [
+            [
+                "2374a56baa8b9a80"
+            ]
+        ]
+    },
+    {
+        "id": "41a9dc26159a46db",
+        "type": "debug",
+        "z": "16b13520e42c46f7",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "27100f2f64b6fe2c",
+        "type": "modbus-read",
+        "z": "a12e990e32075505",
+        "name": "Lire Registre Barrière",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "HoldingRegister",
+        "adr": "259",
+        "quantity": "1",
+        "rate": "1",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "modbus-server",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 500,
+        "y": 320,
+        "wires": [
+            [
+                "ef74f31d594c8cb9"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "ef74f31d594c8cb9",
+        "type": "function",
+        "z": "a12e990e32075505",
+        "name": "Gérer état",
+        "func": "// Lecture de la valeur reçue\nlet val = msg.payload[0];\n\n// Récupérer les anciens états\nlet etatEntree = flow.get(\"etatEntree\") || \"<font color='gray'><b>État inconnu entrée</b></font>\";\nlet etatSortie = flow.get(\"etatSortie\") || \"<font color='gray'><b>État inconnu sortie</b></font>\";\n\n// Mettre à jour uniquement la barrière concernée\nif (val === 1) {\n    etatEntree = \"<font color='green'><b>Barrière entrée ouverte</b></font>\";\n}\nelse if (val === 2) {\n    etatEntree = \"<font color='red'><b>Barrière entrée fermée</b></font>\";\n}\nelse if (val === 4) {\n    etatSortie = \"<font color='green'><b>Barrière sortie ouverte</b></font>\";\n}\nelse if (val === 8) {\n    etatSortie = \"<font color='red'><b>Barrière sortie fermée</b></font>\";\n}\n\n// Sauvegarde des états dans le flow context\nflow.set(\"etatEntree\", etatEntree);\nflow.set(\"etatSortie\", etatSortie);\n\n// Préparation des messages de sortie\nlet msgEntree = { payload: etatEntree };\nlet msgSortie = { payload: etatSortie };\n\n// Renvoie dans deux sorties (une pour chaque texte à afficher)\nreturn [msgEntree, msgSortie];\n",
+        "outputs": 3,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 320,
+        "wires": [
+            [
+                "834fd1b404da9f81"
+            ],
+            [
+                "d4387586dba1a366"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "834fd1b404da9f81",
+        "type": "ui_text",
+        "z": "a12e990e32075505",
+        "group": "parking_group",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "État Barrière Entrée",
+        "label": "Entrée",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 940,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "d4387586dba1a366",
+        "type": "ui_text",
+        "z": "a12e990e32075505",
+        "group": "d24d0788d88cbf95",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "État Barrière Sortie",
+        "label": "Sortie",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 930,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "ea101e485751082a",
+        "type": "ui_button",
+        "z": "a12e990e32075505",
+        "name": "Lumière ON",
+        "group": "parking_group",
+        "order": 1,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "LUMIÈRE ON",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "on",
+        "topicType": "str",
+        "x": 480,
+        "y": 450,
+        "wires": [
+            [
+                "8a2b2e8809b9bd6c"
+            ]
+        ]
+    },
+    {
+        "id": "89498a941ea4e625",
+        "type": "ui_button",
+        "z": "a12e990e32075505",
+        "name": "Lumière OFF",
+        "group": "parking_group",
+        "order": 2,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "LUMIÈRE OFF",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "off",
+        "topicType": "str",
+        "x": 480,
+        "y": 510,
+        "wires": [
+            [
+                "8a2b2e8809b9bd6c"
+            ]
+        ]
+    },
+    {
+        "id": "8a2b2e8809b9bd6c",
+        "type": "function",
+        "z": "a12e990e32075505",
+        "name": "Mettre état lumière",
+        "func": "let payload = {};\nlet etatTexte = \"\";\n\nif (msg.topic === \"on\") {\n    payload = {\n        fc: 6,\n        unitid: 1,\n        address: 4,\n        value: 256\n    };\n    etatTexte = \"<font color='green'><b>Lumière allumée</b></font>\";\n} else if (msg.topic === \"off\") {\n    payload = {\n        fc: 6,\n        unitid: 1,\n        address: 4,\n        value: 0\n    };\n    etatTexte = \"<font color='red'><b>Lumière éteinte</b></font>\";\n}\n\nnode.send([{ payload: payload }, { payload: etatTexte }]);",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 480,
+        "wires": [
+            [
+                "adb26df4c347149c",
+                "823844c0b27cf6bd"
+            ],
+            [
+                "b80a1f30d8f77483"
+            ]
+        ]
+    },
+    {
+        "id": "adb26df4c347149c",
+        "type": "modbus-write",
+        "z": "a12e990e32075505",
+        "name": "Write lumière",
+        "showStatusActivities": false,
+        "showErrors": true,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "HoldingRegister",
+        "adr": "259",
+        "quantity": "1",
+        "server": "modbus-server",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 970,
+        "y": 450,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "823844c0b27cf6bd",
+        "type": "debug",
+        "z": "a12e990e32075505",
+        "name": "Debug Modbus",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 510,
+        "wires": []
+    },
+    {
+        "id": "b80a1f30d8f77483",
+        "type": "ui_template",
+        "z": "a12e990e32075505",
+        "group": "d24d0788d88cbf95",
+        "name": "Texte lumière",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "format": "<div style=\"text-align: center\" ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 970,
+        "y": 570,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c1d24643bd054f6e",
+        "type": "ui_template",
+        "z": "3f624ca17b0f67e4",
+        "group": "f67a1c96c9d3a9b4",
+        "name": "Interface Caméra",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<script>\n(function(scope) {\n    scope.cams = [\n        { name: \"Caméra 1\", url: \"http://192.168.0.128/axis-cgi/mjpg/video.cgi\" },\n        { name: \"Caméra 2\", url: \"http://192.168.0.7/axis-cgi/mjpg/video.cgi\" },\n        { name: \"Caméra 3\", url: \"http://192.168.0.128/axis-cgi/mjpg/video.cgi\" },\n        { name: \"Caméra 4\", url: \"http://192.168.0.7/axis-cgi/mjpg/video.cgi\" },\n        { name: \"Caméra 5\", url: \"http://192.168.0.128/axis-cgi/mjpg/video.cgi\" },\n        { name: \"Caméra 6\", url: \"http://192.168.0.7/axis-cgi/mjpg/video.cgi\" }\n    ];\n    scope.selected = scope.cams[0];\n\n    scope.selectCam = function(cam) {\n        const viewer = document.querySelector('.selected-cam img');\n        viewer.classList.add('fade-out');\n        setTimeout(() => {\n            scope.$apply(function() {\n                scope.selected = cam;\n            });\n            viewer.classList.remove('fade-out');\n            viewer.classList.add('fade-in');\n            setTimeout(() => viewer.classList.remove('fade-in'), 400);\n        }, 300);\n    };\n})(scope);\n</script>\n\n<style>\n  .cam-container {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: 20px;\n    font-family: 'Segoe UI', sans-serif;\n    background-color: #f7f9fc;\n    padding: 20px;\n    border-radius: 12px;\n  }\n\n  .selected-cam {\n    max-width: 90%;\n    background: white;\n    padding: 16px;\n    border-radius: 16px;\n    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);\n    text-align: center;\n    transition: all 0.3s ease;\n  }\n\n  .selected-cam img {\n    width: 100%;\n    max-height: 450px;\n    border-radius: 12px;\n    transition: opacity 0.4s ease-in-out;\n  }\n\n  .fade-out {\n    opacity: 0;\n  }\n\n  .fade-in {\n    opacity: 1;\n  }\n\n  .cam-title {\n    font-size: 24px;\n    font-weight: 600;\n    margin-bottom: 10px;\n    color: #0078d7;\n  }\n\n  .cam-grid {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n    gap: 16px;\n  }\n\n  .cam-card {\n    width: 180px;\n    background: #ffffff;\n    border-radius: 12px;\n    padding: 10px;\n    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);\n    cursor: pointer;\n    transition: transform 0.2s, box-shadow 0.3s;\n  }\n\n  .cam-card:hover {\n    transform: scale(1.05);\n    box-shadow: 0 4px 20px rgba(0, 120, 215, 0.3);\n  }\n\n  .cam-card img {\n    width: 100%;\n    border-radius: 8px;\n    margin-bottom: 8px;\n  }\n\n  .cam-card-title {\n    text-align: center;\n    font-weight: bold;\n    color: #333;\n  }\n</style>\n\n<div class=\"cam-container\">\n  <div class=\"selected-cam\">\n    <div class=\"cam-title\">{{selected.name}}</div>\n    <img ng-src=\"{{selected.url}}\">\n  </div>\n\n  <div class=\"cam-grid\">\n    <div class=\"cam-card\" ng-repeat=\"cam in cams\" ng-if=\"cam !== selected\" ng-click=\"selectCam(cam)\">\n      <img ng-src=\"{{cam.url}}\">\n      <div class=\"cam-card-title\">{{cam.name}}</div>\n    </div>\n  </div>\n</div>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 650,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "debug_node",
+        "type": "debug",
+        "z": "4302cfb60d0a158c",
+        "name": "Afficher données",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "061ac1fd3b837e04",
+        "type": "tcp in",
+        "z": "4302cfb60d0a158c",
+        "name": "TCP Récepteur",
+        "server": "server",
+        "host": "",
+        "port": "5005",
+        "datamode": "stream",
+        "datatype": "utf8",
+        "newline": "",
+        "topic": "tcp",
+        "trim": false,
+        "base64": false,
+        "tls": "",
+        "x": 560,
+        "y": 280,
+        "wires": [
+            [
+                "a4e8e39081bcd55d",
+                "debug_node"
+            ]
+        ]
+    },
+    {
+        "id": "a4e8e39081bcd55d",
+        "type": "function",
+        "z": "4302cfb60d0a158c",
+        "name": "Vérifier UID",
+        "func": "// Liste des UID autorisés\nconst uidAutorises = [\n    \"8B67F495\",\n    \"77D46939\",\n    \"6B42035\"\n];\n\n/*// Nettoyage UID reçu\nlet uid = msg.payload.trim();\n\nif (uidAutorises.includes(uid)) {\n    msg.payload = \"01 03\"; // Trame pour ouvrir\n    msg.accès = \"Accès autorisé – Ouverture barrière\";\n    return [msg, null];\n} else {\n    return [null, { payload: \"Accès refusé pour UID : \" + uid }];\n}\n*/\nlet message = msg.payload.toString().toLowerCase();\n\nif (message.includes(\"autorisé\")) {\n    msg.payload = 1;\n} else {\n    msg.payload = 0;\n}\n\nreturn msg;\n",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 280,
+        "wires": [
+            [
+                "f29518c7d62c2957",
+                "8595922716ff6132",
+                "effc0f7e5fe01541"
+            ],
+            [
+                "50b6e6721d8295a2"
+            ]
+        ]
+    },
+    {
+        "id": "f29518c7d62c2957",
+        "type": "ui_text",
+        "z": "4302cfb60d0a158c",
+        "group": "dc17b45fca712d8f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Message OK",
+        "label": "État",
+        "format": "{{msg.accès}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1030,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "50b6e6721d8295a2",
+        "type": "ui_text",
+        "z": "4302cfb60d0a158c",
+        "group": "dc17b45fca712d8f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Message Refus",
+        "label": "État",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1030,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "8595922716ff6132",
+        "type": "link out",
+        "z": "4302cfb60d0a158c",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "e43e3232ac1ea7cf"
+        ],
+        "x": 1035,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "effc0f7e5fe01541",
+        "type": "debug",
+        "z": "4302cfb60d0a158c",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1140,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "d854f31b72158771",
+        "type": "modbus-read",
+        "z": "a1380fb9e2ac223f",
+        "name": "Lire présence voiture (M21)",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "1",
+        "dataType": "Coil",
+        "adr": "21",
+        "quantity": "1",
+        "rate": "5",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "modbus-server",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 340,
+        "y": 340,
+        "wires": [
+            [
+                "021069262131787a",
+                "2828eb1c663fa329"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "45203aadba12a522",
+        "type": "link out",
+        "z": "a1380fb9e2ac223f",
+        "name": "link out 2",
+        "mode": "link",
+        "links": [
+            "70cc79ea4b5852b4"
+        ],
+        "x": 975,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "a0bff189141c4bae",
+        "type": "debug",
+        "z": "a1380fb9e2ac223f",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "2828eb1c663fa329",
+        "type": "debug",
+        "z": "a1380fb9e2ac223f",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "021069262131787a",
+        "type": "function",
+        "z": "a1380fb9e2ac223f",
+        "name": "Check présence = false ➤ fermeture",
+        "func": "/*/let presence = msg.payload[0]; // bit 0 = capteur présence voiture\nlet wasPresent = context.get(\"wasPresent\") || false;\nlet fermetureActive = flow.get(\"fermetureActive\");\n\n// Si le capteur est géré, on continue\nif (fermetureActive === false) {\n    return null;\n}\n\n// Si voiture était là et qu'elle est partie maintenant\nif (wasPresent && presence === false) {\n    context.set(\"wasPresent\", false);\n\n    // Envoie directement 1 pour signaler FERMETURE\n    msg.payload = 2;\n    return msg;\n\n} else {\n    context.set(\"wasPresent\", presence);\n    return null;\n}\n//*/\n\n/*\nlet presence = msg.payload[0]; // capteur présence\nlet wasPresent = context.get(\"wasPresent\") || false;\nlet fermetureActive = flow.get(\"fermetureActive\");\n\nif (fermetureActive === false) {\n    return null;\n}\n\nif (wasPresent && presence === false) {\n    context.set(\"wasPresent\", false);\n\n    // Crée la trame de fermeture\n    let trameFermeture = {\n        payload: {\n            fc: 6,\n            unitid: 1,\n            address: 259,\n            value: 2 // ✅ FERMER barrière\n        }\n    };\n\n    // Envoie maintenant\n    node.send(trameFermeture);\n\n    // Envoie une 2e fois après 2 secondes (renfort)\n    setTimeout(() => {\n        node.send(trameFermeture);\n    }, 2000);\n\n    return null;\n\n} else {\n    context.set(\"wasPresent\", presence);\n    return null;\n}\n\n*/\nlet payload = msg.payload;\nlet fermetureTrame = {\n    payload: {\n        fc: 6,\n        unitid: 1,\n        address: 259,\n        value: 2 // ✅ fermer barrière\n    }\n};\n\n// Si c’est un message texte avec \"fermer\"\nif (typeof payload === \"string\" && payload.toLowerCase().includes(\"fermer\")) {\n    node.send(fermetureTrame);\n    setTimeout(() => {\n        node.send(fermetureTrame);\n    }, 2000);\n    return null;\n}\n\n// Si c’est le capteur (%Mxx)\nif (Array.isArray(payload)) {\n    let presence = payload[0];\n    let wasPresent = context.get(\"wasPresent\") || false;\n\n    if (wasPresent && presence === false) {\n        context.set(\"wasPresent\", false);\n\n        node.send(fermetureTrame);\n        setTimeout(() => {\n            node.send(fermetureTrame);\n        }, 2000);\n\n        return null;\n    } else {\n        context.set(\"wasPresent\", presence);\n    }\n}\n\nreturn null;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 300,
+        "wires": [
+            [
+                "45203aadba12a522",
+                "a0bff189141c4bae"
+            ]
+        ]
+    },
+    {
+        "id": "5f30574455f9a409",
+        "type": "link out",
+        "z": "a1380fb9e2ac223f",
+        "name": "link out 3",
+        "mode": "link",
+        "links": [
+            "4fcb22ba4b3c4986"
+        ],
+        "x": 985,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "4ee94f4ff5808440",
+        "type": "debug",
+        "z": "a1380fb9e2ac223f",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "95e3dbc9f5450a9d",
+        "type": "debug",
+        "z": "a1380fb9e2ac223f",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "427637e8686b7c91",
+        "type": "modbus-read",
+        "z": "a1380fb9e2ac223f",
+        "name": "Lire présence voiture SORTIE (%M25)",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "1",
+        "dataType": "Coil",
+        "adr": "25",
+        "quantity": "1",
+        "rate": "5",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "modbus-server",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 370,
+        "y": 540,
+        "wires": [
+            [
+                "95e3dbc9f5450a9d",
+                "e2575e4c7e2a6a5c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e2575e4c7e2a6a5c",
+        "type": "function",
+        "z": "a1380fb9e2ac223f",
+        "name": "Ouvrir/fermer barrière SORTIE",
+        "func": "let presence = msg.payload[0]; // %M25 ou %M29\n\nif (presence === true) {\n    msg.payload = 4; // ✅ envoyer 1 si voiture détectée\n    return msg;\n} else {\n    return null; // ❌ sinon on fait rien\n}\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 460,
+        "wires": [
+            [
+                "4ee94f4ff5808440",
+                "5f30574455f9a409"
+            ]
+        ]
+    },
+    {
+        "id": "6168a8b2d9dd66f9",
+        "type": "link out",
+        "z": "a1380fb9e2ac223f",
+        "name": "link out 6",
+        "mode": "link",
+        "links": [
+            "8180a397a7b8a759"
+        ],
+        "x": 985,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "637777a2f9e0d2ad",
+        "type": "debug",
+        "z": "a1380fb9e2ac223f",
+        "name": "debug 7",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "4115017d80b2c538",
+        "type": "debug",
+        "z": "a1380fb9e2ac223f",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "f4c024aecda41842",
+        "type": "modbus-read",
+        "z": "a1380fb9e2ac223f",
+        "name": "Lire présence voiture SORTIE (%M26)",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "1",
+        "dataType": "Coil",
+        "adr": "29",
+        "quantity": "1",
+        "rate": "5",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "modbus-server",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 370,
+        "y": 760,
+        "wires": [
+            [
+                "4115017d80b2c538",
+                "9017c8807dfe5665"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "9017c8807dfe5665",
+        "type": "function",
+        "z": "a1380fb9e2ac223f",
+        "name": "Ouvrir/fermer barrière SORTIE",
+        "func": "let presence = msg.payload[0]; // %M29\n\nif (presence === true) {\n    // ✅ Voiture détectée ➤ fermeture (value: 8)\n    msg.payload = {\n        fc: 6,\n        unitid: 1,\n        address: 260, // adresse barrière SORTIE 2\n        value: 8\n    };\n    return msg;\n} else {\n    // ❌ Pas de voiture ➤ on fait rien du tout\n    return null;\n}\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 700,
+        "wires": [
+            [
+                "637777a2f9e0d2ad",
+                "6168a8b2d9dd66f9"
+            ]
+        ]
+    }
+]
