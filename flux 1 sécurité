@@ -1,0 +1,133 @@
+[
+    {
+        "id": "91d055626f2fa27e",
+        "type": "tab",
+        "label": "Flux 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "67909bac07604fde",
+        "type": "ui_template",
+        "z": "91d055626f2fa27e",
+        "d": true,
+        "group": "14bd0185b0a20615",
+        "name": "Accueil Résipark Sécurisé",
+        "order": 1,
+        "width": "24",
+        "height": "10",
+        "format": "<div id=\"overlay-security\" style=\"position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: linear-gradient(135deg, #1d1d1d, #2e2e2e); color: white; z-index: 999999; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;\">\n    <h1 style=\"font-size: 3em; margin-bottom: 20px;\">🚗 Bienvenue sur Résipark</h1>\n    <p style=\"font-size: 1.5em; max-width: 600px;\">Votre espace de gestion privée du parking et de la sécurité</p>\n    <div style=\"margin: 30px 0;\">\n        <button disabled style=\"padding: 15px 30px; font-size: 1.2em; margin: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px;\">Accès Parking</button>\n        <button disabled style=\"padding: 15px 30px; font-size: 1.2em; margin: 10px; background-color: #2196F3; color: white; border: none; border-radius: 5px;\">Caméras Surveillance</button>\n        <button disabled style=\"padding: 15px 30px; font-size: 1.2em; margin: 10px; background-color: #FF9800; color: white; border: none; border-radius: 5px;\">Gestion Utilisateurs</button>\n    </div>\n    <div style=\"margin-top: 20px;\">\n        <input type=\"password\" id=\"codeInput\" placeholder=\"Entrer le code PIN\" style=\"padding: 15px; font-size: 1.5em; width: 250px; text-align: center; border-radius: 5px; border: none;\">\n        <br><br>\n        <button onclick=\"checkCode()\" style=\"padding: 12px 40px; font-size: 1.2em; cursor: pointer; background-color: #28a745; color: white; border: none; border-radius: 5px;\">Valider</button>\n        <p id=\"result\" style=\"color: red; margin-top: 20px; font-weight: bold;\"></p>\n    </div>\n</div>\n\n<script>\n    function checkCode(){\n        var code = document.getElementById('codeInput').value;\n        if(code === \"0175\"){\n            document.getElementById('overlay-security').style.display = 'none';\n            var msg = {payload: \"OK\"};\n            scope.send(msg);\n        }else{\n            document.getElementById('result').innerHTML = \"🚫 Code incorrect\";\n        }\n    }\n</script>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 550,
+        "y": 320,
+        "wires": [
+            [
+                "c90e81c670b8225b",
+                "1fe789b40d04d2e2"
+            ]
+        ]
+    },
+    {
+        "id": "c90e81c670b8225b",
+        "type": "function",
+        "z": "91d055626f2fa27e",
+        "d": true,
+        "name": "Débloquer Accès",
+        "func": "global.set(\"accesParking\", true);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1fe789b40d04d2e2",
+        "type": "ui_ui_control",
+        "z": "91d055626f2fa27e",
+        "d": true,
+        "name": "Aller Parking",
+        "events": "all",
+        "x": 810,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "41190b4cecea67b4",
+        "type": "ui_ui_control",
+        "z": "91d055626f2fa27e",
+        "d": true,
+        "name": "Check On Connect",
+        "events": "connect",
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "b7b7a5012891caec"
+            ]
+        ]
+    },
+    {
+        "id": "b7b7a5012891caec",
+        "type": "function",
+        "z": "91d055626f2fa27e",
+        "d": true,
+        "name": "Forcer sur accueil si pas code",
+        "func": "if(global.get(\"accesParking\") !== true){\n    return {payload: {tab: \"Accueil\"}};\n}\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 400,
+        "wires": [
+            [
+                "c46c0903a68463eb"
+            ]
+        ]
+    },
+    {
+        "id": "c46c0903a68463eb",
+        "type": "ui_ui_control",
+        "z": "91d055626f2fa27e",
+        "d": true,
+        "name": "Rediriger Accueil",
+        "events": "all",
+        "x": 910,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "14bd0185b0a20615",
+        "type": "ui_group",
+        "name": "Bienvenue Résipark",
+        "tab": "652a102a8ad0a17d",
+        "order": 1,
+        "disp": true,
+        "width": "24",
+        "collapse": false
+    },
+    {
+        "id": "652a102a8ad0a17d",
+        "type": "ui_tab",
+        "name": "Accueil",
+        "icon": "home",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
