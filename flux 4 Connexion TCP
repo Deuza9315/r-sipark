@@ -1,0 +1,165 @@
+[
+    {
+        "id": "4302cfb60d0a158c",
+        "type": "tab",
+        "label": "Connexion TCP",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "debug_node",
+        "type": "debug",
+        "z": "4302cfb60d0a158c",
+        "name": "Afficher données",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "061ac1fd3b837e04",
+        "type": "tcp in",
+        "z": "4302cfb60d0a158c",
+        "name": "TCP Récepteur",
+        "server": "server",
+        "host": "",
+        "port": "5005",
+        "datamode": "stream",
+        "datatype": "utf8",
+        "newline": "",
+        "topic": "tcp",
+        "trim": false,
+        "base64": false,
+        "tls": "",
+        "x": 560,
+        "y": 280,
+        "wires": [
+            [
+                "a4e8e39081bcd55d",
+                "debug_node"
+            ]
+        ]
+    },
+    {
+        "id": "a4e8e39081bcd55d",
+        "type": "function",
+        "z": "4302cfb60d0a158c",
+        "name": "Vérifier UID",
+        "func": "// Liste des UID autorisés\nconst uidAutorises = [\n    \"8B67F495\",\n    \"77D46939\",\n    \"6B42035\"\n];\n\n/*// Nettoyage UID reçu\nlet uid = msg.payload.trim();\n\nif (uidAutorises.includes(uid)) {\n    msg.payload = \"01 03\"; // Trame pour ouvrir\n    msg.accès = \"Accès autorisé – Ouverture barrière\";\n    return [msg, null];\n} else {\n    return [null, { payload: \"Accès refusé pour UID : \" + uid }];\n}\n*/\nlet message = msg.payload.toString().toLowerCase();\n\nif (message.includes(\"autorisé\")) {\n    msg.payload = 1;\n} else {\n    msg.payload = 0;\n}\n\nreturn msg;\n",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 280,
+        "wires": [
+            [
+                "f29518c7d62c2957",
+                "8595922716ff6132",
+                "effc0f7e5fe01541"
+            ],
+            [
+                "50b6e6721d8295a2"
+            ]
+        ]
+    },
+    {
+        "id": "f29518c7d62c2957",
+        "type": "ui_text",
+        "z": "4302cfb60d0a158c",
+        "group": "dc17b45fca712d8f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Message OK",
+        "label": "État",
+        "format": "{{msg.accès}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1030,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "50b6e6721d8295a2",
+        "type": "ui_text",
+        "z": "4302cfb60d0a158c",
+        "group": "dc17b45fca712d8f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Message Refus",
+        "label": "État",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1030,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "8595922716ff6132",
+        "type": "link out",
+        "z": "4302cfb60d0a158c",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "e43e3232ac1ea7cf"
+        ],
+        "x": 1035,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "effc0f7e5fe01541",
+        "type": "debug",
+        "z": "4302cfb60d0a158c",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1140,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "dc17b45fca712d8f",
+        "type": "ui_group",
+        "name": "Contrôle Parking",
+        "tab": "793399102954e388",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "793399102954e388",
+        "type": "ui_tab",
+        "name": "Parking",
+        "icon": "car",
+        "order": 1
+    }
+]
