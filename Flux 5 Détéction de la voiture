@@ -1,0 +1,338 @@
+[
+    {
+        "id": "a1380fb9e2ac223f",
+        "type": "tab",
+        "label": "Dectection de voiture (Sol) ",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d854f31b72158771",
+        "type": "modbus-read",
+        "z": "a1380fb9e2ac223f",
+        "name": "Lire présence voiture (M21)",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "1",
+        "dataType": "Coil",
+        "adr": "21",
+        "quantity": "1",
+        "rate": "5",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "modbus-server",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 340,
+        "y": 340,
+        "wires": [
+            [
+                "021069262131787a",
+                "2828eb1c663fa329"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "45203aadba12a522",
+        "type": "link out",
+        "z": "a1380fb9e2ac223f",
+        "name": "link out 2",
+        "mode": "link",
+        "links": [
+            "70cc79ea4b5852b4"
+        ],
+        "x": 975,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "a0bff189141c4bae",
+        "type": "debug",
+        "z": "a1380fb9e2ac223f",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "2828eb1c663fa329",
+        "type": "debug",
+        "z": "a1380fb9e2ac223f",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "021069262131787a",
+        "type": "function",
+        "z": "a1380fb9e2ac223f",
+        "name": "Check présence = false ➤ fermeture",
+        "func": "/*/let presence = msg.payload[0]; // bit 0 = capteur présence voiture\nlet wasPresent = context.get(\"wasPresent\") || false;\nlet fermetureActive = flow.get(\"fermetureActive\");\n\n// Si le capteur est géré, on continue\nif (fermetureActive === false) {\n    return null;\n}\n\n// Si voiture était là et qu'elle est partie maintenant\nif (wasPresent && presence === false) {\n    context.set(\"wasPresent\", false);\n\n    // Envoie directement 1 pour signaler FERMETURE\n    msg.payload = 2;\n    return msg;\n\n} else {\n    context.set(\"wasPresent\", presence);\n    return null;\n}\n//*/\n\n/*\nlet presence = msg.payload[0]; // capteur présence\nlet wasPresent = context.get(\"wasPresent\") || false;\nlet fermetureActive = flow.get(\"fermetureActive\");\n\nif (fermetureActive === false) {\n    return null;\n}\n\nif (wasPresent && presence === false) {\n    context.set(\"wasPresent\", false);\n\n    // Crée la trame de fermeture\n    let trameFermeture = {\n        payload: {\n            fc: 6,\n            unitid: 1,\n            address: 259,\n            value: 2 // ✅ FERMER barrière\n        }\n    };\n\n    // Envoie maintenant\n    node.send(trameFermeture);\n\n    // Envoie une 2e fois après 2 secondes (renfort)\n    setTimeout(() => {\n        node.send(trameFermeture);\n    }, 2000);\n\n    return null;\n\n} else {\n    context.set(\"wasPresent\", presence);\n    return null;\n}\n\n*/\nlet payload = msg.payload;\nlet fermetureTrame = {\n    payload: {\n        fc: 6,\n        unitid: 1,\n        address: 259,\n        value: 2 // ✅ fermer barrière\n    }\n};\n\n// Si c’est un message texte avec \"fermer\"\nif (typeof payload === \"string\" && payload.toLowerCase().includes(\"fermer\")) {\n    node.send(fermetureTrame);\n    setTimeout(() => {\n        node.send(fermetureTrame);\n    }, 2000);\n    return null;\n}\n\n// Si c’est le capteur (%Mxx)\nif (Array.isArray(payload)) {\n    let presence = payload[0];\n    let wasPresent = context.get(\"wasPresent\") || false;\n\n    if (wasPresent && presence === false) {\n        context.set(\"wasPresent\", false);\n\n        node.send(fermetureTrame);\n        setTimeout(() => {\n            node.send(fermetureTrame);\n        }, 2000);\n\n        return null;\n    } else {\n        context.set(\"wasPresent\", presence);\n    }\n}\n\nreturn null;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 300,
+        "wires": [
+            [
+                "45203aadba12a522",
+                "a0bff189141c4bae"
+            ]
+        ]
+    },
+    {
+        "id": "5f30574455f9a409",
+        "type": "link out",
+        "z": "a1380fb9e2ac223f",
+        "name": "link out 3",
+        "mode": "link",
+        "links": [
+            "4fcb22ba4b3c4986"
+        ],
+        "x": 985,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "4ee94f4ff5808440",
+        "type": "debug",
+        "z": "a1380fb9e2ac223f",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "95e3dbc9f5450a9d",
+        "type": "debug",
+        "z": "a1380fb9e2ac223f",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "427637e8686b7c91",
+        "type": "modbus-read",
+        "z": "a1380fb9e2ac223f",
+        "name": "Lire présence voiture SORTIE (%M25)",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "1",
+        "dataType": "Coil",
+        "adr": "25",
+        "quantity": "1",
+        "rate": "5",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "modbus-server",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 370,
+        "y": 540,
+        "wires": [
+            [
+                "95e3dbc9f5450a9d",
+                "e2575e4c7e2a6a5c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e2575e4c7e2a6a5c",
+        "type": "function",
+        "z": "a1380fb9e2ac223f",
+        "name": "Ouvrir/fermer barrière SORTIE",
+        "func": "let presence = msg.payload[0]; // %M25 ou %M29\n\nif (presence === true) {\n    msg.payload = 4; // ✅ envoyer 1 si voiture détectée\n    return msg;\n} else {\n    return null; // ❌ sinon on fait rien\n}\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 460,
+        "wires": [
+            [
+                "4ee94f4ff5808440",
+                "5f30574455f9a409"
+            ]
+        ]
+    },
+    {
+        "id": "6168a8b2d9dd66f9",
+        "type": "link out",
+        "z": "a1380fb9e2ac223f",
+        "name": "link out 6",
+        "mode": "link",
+        "links": [
+            "8180a397a7b8a759"
+        ],
+        "x": 985,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "637777a2f9e0d2ad",
+        "type": "debug",
+        "z": "a1380fb9e2ac223f",
+        "name": "debug 7",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "4115017d80b2c538",
+        "type": "debug",
+        "z": "a1380fb9e2ac223f",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "f4c024aecda41842",
+        "type": "modbus-read",
+        "z": "a1380fb9e2ac223f",
+        "name": "Lire présence voiture SORTIE (%M26)",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "1",
+        "dataType": "Coil",
+        "adr": "29",
+        "quantity": "1",
+        "rate": "5",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "modbus-server",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 370,
+        "y": 760,
+        "wires": [
+            [
+                "4115017d80b2c538",
+                "9017c8807dfe5665"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "9017c8807dfe5665",
+        "type": "function",
+        "z": "a1380fb9e2ac223f",
+        "name": "Ouvrir/fermer barrière SORTIE",
+        "func": "let presence = msg.payload[0]; // %M29\n\nif (presence === true) {\n    // ✅ Voiture détectée ➤ fermeture (value: 8)\n    msg.payload = {\n        fc: 6,\n        unitid: 1,\n        address: 260, // adresse barrière SORTIE 2\n        value: 8\n    };\n    return msg;\n} else {\n    // ❌ Pas de voiture ➤ on fait rien du tout\n    return null;\n}\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 700,
+        "wires": [
+            [
+                "637777a2f9e0d2ad",
+                "6168a8b2d9dd66f9"
+            ]
+        ]
+    },
+    {
+        "id": "modbus-server",
+        "type": "modbus-client",
+        "name": "Modbus Parking",
+        "clienttype": "tcp",
+        "bufferCommands": false,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": false,
+        "tcpHost": "192.168.0.105",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "",
+        "serialConnectionDelay": "",
+        "serialAsciiResponseStartDelimiter": "",
+        "unit_id": 0,
+        "commandDelay": "",
+        "clientTimeout": "",
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": 2000,
+        "parallelUnitIdsAllowed": true,
+        "showErrors": false,
+        "showWarnings": true,
+        "showLogs": true
+    }
+]
