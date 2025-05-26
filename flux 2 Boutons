@@ -1,133 +1,395 @@
 [
     {
-        "id": "91d055626f2fa27e",
+        "id": "16b13520e42c46f7",
         "type": "tab",
-        "label": "Flux 1",
+        "label": "Flow 1",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "67909bac07604fde",
-        "type": "ui_template",
-        "z": "91d055626f2fa27e",
-        "d": true,
-        "group": "14bd0185b0a20615",
-        "name": "Accueil Résipark Sécurisé",
+        "id": "30c0c0e1c9bba358",
+        "type": "ui_button",
+        "z": "16b13520e42c46f7",
+        "name": "Activer Mode Forcer",
+        "group": "parking_group",
         "order": 1,
-        "width": "24",
-        "height": "10",
-        "format": "<div id=\"overlay-security\" style=\"position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: linear-gradient(135deg, #1d1d1d, #2e2e2e); color: white; z-index: 999999; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;\">\n    <h1 style=\"font-size: 3em; margin-bottom: 20px;\">🚗 Bienvenue sur Résipark</h1>\n    <p style=\"font-size: 1.5em; max-width: 600px;\">Votre espace de gestion privée du parking et de la sécurité</p>\n    <div style=\"margin: 30px 0;\">\n        <button disabled style=\"padding: 15px 30px; font-size: 1.2em; margin: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px;\">Accès Parking</button>\n        <button disabled style=\"padding: 15px 30px; font-size: 1.2em; margin: 10px; background-color: #2196F3; color: white; border: none; border-radius: 5px;\">Caméras Surveillance</button>\n        <button disabled style=\"padding: 15px 30px; font-size: 1.2em; margin: 10px; background-color: #FF9800; color: white; border: none; border-radius: 5px;\">Gestion Utilisateurs</button>\n    </div>\n    <div style=\"margin-top: 20px;\">\n        <input type=\"password\" id=\"codeInput\" placeholder=\"Entrer le code PIN\" style=\"padding: 15px; font-size: 1.5em; width: 250px; text-align: center; border-radius: 5px; border: none;\">\n        <br><br>\n        <button onclick=\"checkCode()\" style=\"padding: 12px 40px; font-size: 1.2em; cursor: pointer; background-color: #28a745; color: white; border: none; border-radius: 5px;\">Valider</button>\n        <p id=\"result\" style=\"color: red; margin-top: 20px; font-weight: bold;\"></p>\n    </div>\n</div>\n\n<script>\n    function checkCode(){\n        var code = document.getElementById('codeInput').value;\n        if(code === \"0175\"){\n            document.getElementById('overlay-security').style.display = 'none';\n            var msg = {payload: \"OK\"};\n            scope.send(msg);\n        }else{\n            document.getElementById('result').innerHTML = \"🚫 Code incorrect\";\n        }\n    }\n</script>",
-        "storeOutMessages": false,
-        "fwdInMessages": false,
-        "resendOnRefresh": true,
-        "templateScope": "local",
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Activer Mode Forcer",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
         "className": "",
-        "x": 550,
-        "y": 320,
+        "icon": "",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "",
+        "topicType": "str",
+        "x": 380,
+        "y": 120,
         "wires": [
             [
-                "c90e81c670b8225b",
-                "1fe789b40d04d2e2"
+                "modbus_write_258"
             ]
         ]
     },
     {
-        "id": "c90e81c670b8225b",
-        "type": "function",
-        "z": "91d055626f2fa27e",
-        "d": true,
-        "name": "Débloquer Accès",
-        "func": "global.set(\"accesParking\", true);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 810,
+        "id": "3e1ef7f7933b7202",
+        "type": "ui_button",
+        "z": "16b13520e42c46f7",
+        "name": "Ouvrir Barrière",
+        "group": "parking_group",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Ouvrir Barrière",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "",
+        "topicType": "str",
+        "x": 400,
+        "y": 180,
+        "wires": [
+            [
+                "modbus_write_259"
+            ]
+        ]
+    },
+    {
+        "id": "modbus_write_258",
+        "type": "modbus-write",
+        "z": "16b13520e42c46f7",
+        "name": "Écriture registre 258",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "0",
+        "dataType": "HoldingRegister",
+        "adr": "258",
+        "quantity": "1",
+        "server": "modbus_client_1",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 640,
+        "y": 120,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7c2b08f49d54256d",
+        "type": "ui_button",
+        "z": "16b13520e42c46f7",
+        "name": "Fermer Barrière",
+        "group": "parking_group",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Fermer Barrière",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "2",
+        "payloadType": "num",
+        "topic": "",
+        "topicType": "str",
+        "x": 400,
+        "y": 260,
+        "wires": [
+            [
+                "8c9c79d579f9865e"
+            ]
+        ]
+    },
+    {
+        "id": "8c9c79d579f9865e",
+        "type": "modbus-write",
+        "z": "16b13520e42c46f7",
+        "name": "Écriture registre 259",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "0",
+        "dataType": "HoldingRegister",
+        "adr": "259",
+        "quantity": "1",
+        "server": "modbus_client_1",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 640,
         "y": 280,
         "wires": [
+            [],
             []
         ]
     },
     {
-        "id": "1fe789b40d04d2e2",
-        "type": "ui_ui_control",
-        "z": "91d055626f2fa27e",
-        "d": true,
-        "name": "Aller Parking",
-        "events": "all",
-        "x": 810,
+        "id": "c7faea94bd7efa24",
+        "type": "ui_button",
+        "z": "16b13520e42c46f7",
+        "name": "Ouvrir Barrière de Sortie",
+        "group": "parking_group",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Ouvrir Barrière de Sortie ",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "4",
+        "payloadType": "num",
+        "topic": "",
+        "topicType": "str",
+        "x": 390,
         "y": 340,
         "wires": [
+            [
+                "4ff97539ec139f50",
+                "41a9dc26159a46db"
+            ]
+        ]
+    },
+    {
+        "id": "modbus_write_259",
+        "type": "modbus-write",
+        "z": "16b13520e42c46f7",
+        "name": "Écriture registre 259",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "0",
+        "dataType": "HoldingRegister",
+        "adr": "259",
+        "quantity": "1",
+        "server": "modbus_client_1",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 640,
+        "y": 200,
+        "wires": [
+            [],
             []
         ]
     },
     {
-        "id": "41190b4cecea67b4",
-        "type": "ui_ui_control",
-        "z": "91d055626f2fa27e",
-        "d": true,
-        "name": "Check On Connect",
-        "events": "connect",
+        "id": "4ff97539ec139f50",
+        "type": "modbus-write",
+        "z": "16b13520e42c46f7",
+        "name": "Écriture registre 259",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "0",
+        "dataType": "HoldingRegister",
+        "adr": "259",
+        "quantity": "1",
+        "server": "modbus_client_1",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 640,
+        "y": 360,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f52cd3e049f263ce",
+        "type": "ui_button",
+        "z": "16b13520e42c46f7",
+        "name": "Fermer Barrière de Sortie",
+        "group": "parking_group",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Fermer Barrière de Sortie",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "8",
+        "payloadType": "num",
+        "topic": "",
+        "topicType": "str",
         "x": 390,
         "y": 420,
         "wires": [
             [
-                "b7b7a5012891caec"
+                "2374a56baa8b9a80"
             ]
         ]
     },
     {
-        "id": "b7b7a5012891caec",
-        "type": "function",
-        "z": "91d055626f2fa27e",
-        "d": true,
-        "name": "Forcer sur accueil si pas code",
-        "func": "if(global.get(\"accesParking\") !== true){\n    return {payload: {tab: \"Accueil\"}};\n}\nreturn null;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 400,
+        "id": "2374a56baa8b9a80",
+        "type": "modbus-write",
+        "z": "16b13520e42c46f7",
+        "name": "Écriture registre 259",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "0",
+        "dataType": "HoldingRegister",
+        "adr": "259",
+        "quantity": "1",
+        "server": "modbus_client_1",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 640,
+        "y": 440,
         "wires": [
-            [
-                "c46c0903a68463eb"
-            ]
-        ]
-    },
-    {
-        "id": "c46c0903a68463eb",
-        "type": "ui_ui_control",
-        "z": "91d055626f2fa27e",
-        "d": true,
-        "name": "Rediriger Accueil",
-        "events": "all",
-        "x": 910,
-        "y": 420,
-        "wires": [
+            [],
             []
         ]
     },
     {
-        "id": "14bd0185b0a20615",
-        "type": "ui_group",
-        "name": "Bienvenue Résipark",
-        "tab": "652a102a8ad0a17d",
-        "order": 1,
-        "disp": true,
-        "width": "24",
-        "collapse": false
+        "id": "e43e3232ac1ea7cf",
+        "type": "link in",
+        "z": "16b13520e42c46f7",
+        "name": "link in 1",
+        "links": [
+            "8595922716ff6132"
+        ],
+        "x": 425,
+        "y": 220,
+        "wires": [
+            [
+                "modbus_write_259"
+            ]
+        ]
     },
     {
-        "id": "652a102a8ad0a17d",
-        "type": "ui_tab",
-        "name": "Accueil",
-        "icon": "home",
+        "id": "70cc79ea4b5852b4",
+        "type": "link in",
+        "z": "16b13520e42c46f7",
+        "name": "link in 2",
+        "links": [
+            "45203aadba12a522"
+        ],
+        "x": 425,
+        "y": 300,
+        "wires": [
+            [
+                "8c9c79d579f9865e"
+            ]
+        ]
+    },
+    {
+        "id": "4fcb22ba4b3c4986",
+        "type": "link in",
+        "z": "16b13520e42c46f7",
+        "name": "link in 3",
+        "links": [
+            "5f30574455f9a409"
+        ],
+        "x": 425,
+        "y": 380,
+        "wires": [
+            [
+                "4ff97539ec139f50"
+            ]
+        ]
+    },
+    {
+        "id": "8180a397a7b8a759",
+        "type": "link in",
+        "z": "16b13520e42c46f7",
+        "name": "link in 4",
+        "links": [
+            "6168a8b2d9dd66f9"
+        ],
+        "x": 425,
+        "y": 460,
+        "wires": [
+            [
+                "2374a56baa8b9a80"
+            ]
+        ]
+    },
+    {
+        "id": "41a9dc26159a46db",
+        "type": "debug",
+        "z": "16b13520e42c46f7",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "parking_group",
+        "type": "ui_group",
+        "name": "Contrôle Parking",
+        "tab": "parking_tab",
         "order": 1,
-        "disabled": false,
-        "hidden": false
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "modbus_client_1",
+        "type": "modbus-client",
+        "name": "ResiPark",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": false,
+        "tcpHost": "192.168.0.105",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "",
+        "serialConnectionDelay": "",
+        "serialAsciiResponseStartDelimiter": "",
+        "unit_id": 0,
+        "commandDelay": "",
+        "clientTimeout": "",
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": 2000,
+        "parallelUnitIdsAllowed": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "parking_tab",
+        "type": "ui_tab",
+        "name": "Parking",
+        "icon": "car",
+        "order": 1
     }
 ]
