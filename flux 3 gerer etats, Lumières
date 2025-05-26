@@ -1,0 +1,313 @@
+[
+    {
+        "id": "a12e990e32075505",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "27100f2f64b6fe2c",
+        "type": "modbus-read",
+        "z": "a12e990e32075505",
+        "name": "Lire Registre Barrière",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "HoldingRegister",
+        "adr": "259",
+        "quantity": "1",
+        "rate": "1",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "modbus-server",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 500,
+        "y": 320,
+        "wires": [
+            [
+                "ef74f31d594c8cb9"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "ef74f31d594c8cb9",
+        "type": "function",
+        "z": "a12e990e32075505",
+        "name": "Gérer état",
+        "func": "// Lecture de la valeur reçue\nlet val = msg.payload[0];\n\n// Récupérer les anciens états\nlet etatEntree = flow.get(\"etatEntree\") || \"<font color='gray'><b>État inconnu entrée</b></font>\";\nlet etatSortie = flow.get(\"etatSortie\") || \"<font color='gray'><b>État inconnu sortie</b></font>\";\n\n// Mettre à jour uniquement la barrière concernée\nif (val === 1) {\n    etatEntree = \"<font color='green'><b>Barrière entrée ouverte</b></font>\";\n}\nelse if (val === 2) {\n    etatEntree = \"<font color='red'><b>Barrière entrée fermée</b></font>\";\n}\nelse if (val === 4) {\n    etatSortie = \"<font color='green'><b>Barrière sortie ouverte</b></font>\";\n}\nelse if (val === 8) {\n    etatSortie = \"<font color='red'><b>Barrière sortie fermée</b></font>\";\n}\n\n// Sauvegarde des états dans le flow context\nflow.set(\"etatEntree\", etatEntree);\nflow.set(\"etatSortie\", etatSortie);\n\n// Préparation des messages de sortie\nlet msgEntree = { payload: etatEntree };\nlet msgSortie = { payload: etatSortie };\n\n// Renvoie dans deux sorties (une pour chaque texte à afficher)\nreturn [msgEntree, msgSortie];\n",
+        "outputs": 3,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 320,
+        "wires": [
+            [
+                "834fd1b404da9f81"
+            ],
+            [
+                "d4387586dba1a366"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "834fd1b404da9f81",
+        "type": "ui_text",
+        "z": "a12e990e32075505",
+        "group": "parking_group",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "État Barrière Entrée",
+        "label": "Entrée",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 940,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "d4387586dba1a366",
+        "type": "ui_text",
+        "z": "a12e990e32075505",
+        "group": "d24d0788d88cbf95",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "État Barrière Sortie",
+        "label": "Sortie",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 930,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "ea101e485751082a",
+        "type": "ui_button",
+        "z": "a12e990e32075505",
+        "name": "Lumière ON",
+        "group": "parking_group",
+        "order": 1,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "LUMIÈRE ON",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "on",
+        "topicType": "str",
+        "x": 480,
+        "y": 450,
+        "wires": [
+            [
+                "8a2b2e8809b9bd6c"
+            ]
+        ]
+    },
+    {
+        "id": "89498a941ea4e625",
+        "type": "ui_button",
+        "z": "a12e990e32075505",
+        "name": "Lumière OFF",
+        "group": "parking_group",
+        "order": 2,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "LUMIÈRE OFF",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "off",
+        "topicType": "str",
+        "x": 480,
+        "y": 510,
+        "wires": [
+            [
+                "8a2b2e8809b9bd6c"
+            ]
+        ]
+    },
+    {
+        "id": "8a2b2e8809b9bd6c",
+        "type": "function",
+        "z": "a12e990e32075505",
+        "name": "Mettre état lumière",
+        "func": "let payload = {};\nlet etatTexte = \"\";\n\nif (msg.topic === \"on\") {\n    payload = {\n        fc: 6,\n        unitid: 1,\n        address: 4,\n        value: 256\n    };\n    etatTexte = \"<font color='green'><b>Lumière allumée</b></font>\";\n} else if (msg.topic === \"off\") {\n    payload = {\n        fc: 6,\n        unitid: 1,\n        address: 4,\n        value: 0\n    };\n    etatTexte = \"<font color='red'><b>Lumière éteinte</b></font>\";\n}\n\nnode.send([{ payload: payload }, { payload: etatTexte }]);",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 480,
+        "wires": [
+            [
+                "adb26df4c347149c",
+                "823844c0b27cf6bd"
+            ],
+            [
+                "b80a1f30d8f77483"
+            ]
+        ]
+    },
+    {
+        "id": "adb26df4c347149c",
+        "type": "modbus-write",
+        "z": "a12e990e32075505",
+        "name": "Write lumière",
+        "showStatusActivities": false,
+        "showErrors": true,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "HoldingRegister",
+        "adr": "259",
+        "quantity": "1",
+        "server": "modbus-server",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 970,
+        "y": 450,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "823844c0b27cf6bd",
+        "type": "debug",
+        "z": "a12e990e32075505",
+        "name": "Debug Modbus",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 510,
+        "wires": []
+    },
+    {
+        "id": "b80a1f30d8f77483",
+        "type": "ui_template",
+        "z": "a12e990e32075505",
+        "group": "d24d0788d88cbf95",
+        "name": "Texte lumière",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "format": "<div style=\"text-align: center\" ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 970,
+        "y": 570,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "modbus-server",
+        "type": "modbus-client",
+        "name": "Modbus Parking",
+        "clienttype": "tcp",
+        "bufferCommands": false,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": false,
+        "tcpHost": "192.168.0.105",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "",
+        "serialConnectionDelay": "",
+        "serialAsciiResponseStartDelimiter": "",
+        "unit_id": 0,
+        "commandDelay": "",
+        "clientTimeout": "",
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": 2000,
+        "parallelUnitIdsAllowed": true,
+        "showErrors": false,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "parking_group",
+        "type": "ui_group",
+        "name": "Contrôle Parking",
+        "tab": "parking_tab",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d24d0788d88cbf95",
+        "type": "ui_group",
+        "name": "Contrôle Parking",
+        "tab": "d58f3321d07cceec",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "parking_tab",
+        "type": "ui_tab",
+        "name": "Parking",
+        "icon": "car",
+        "order": 1
+    },
+    {
+        "id": "d58f3321d07cceec",
+        "type": "ui_tab",
+        "name": "Parking",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
